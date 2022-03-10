@@ -10,7 +10,7 @@ pthread_mutex_lock(&second_mutex);
 printf("Entering critical session -tid1\n");
 sleep(5);
 printf("exiting critical sesssion -tid1\n");
-pthread_mutex_unlock(&first_mutex);
+pthread_mutex_unlock(&first_mutex); //deadloack can be prevented by changing order of resources being locked. unlock 2nd then 1st mutex
 pthread_mutex_unlock(&second_mutex);
 pthread_exit(0);
 }
